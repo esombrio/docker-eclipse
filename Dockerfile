@@ -1,6 +1,6 @@
-FROM ubuntu
+FROM ubuntu:14.04
 
-RUN apt-get update && apt-get install -y openjdk-7-jdk && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y openjdk-7-jdk eclipse && rm -rf /var/lib/apt/lists/*
 
 # Replace 1000 with your user / group id
 RUN export uid=1000 gid=1000 && \
@@ -14,7 +14,4 @@ RUN export uid=1000 gid=1000 && \
 USER developer
 ENV HOME /home/developer
 WORKDIR $HOME
-COPY eclipse-inst-linux64.tar.gz /opt/
-RUN cd /opt && sudo tar -xvf eclipse-inst-linux64.tar.gz
-RUN /opt/eclipse-installer/eclipse-inst
-#CMD /opt/eclipse/eclipse
+CMD /usr/bin/eclipse
