@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-RUN apt-get update && apt-get install -y openjdk-7-jdk eclipse && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y eclipse && rm -rf /var/lib/apt/lists/*
 
 # Replace 1000 with your user / group id
 RUN export uid=1000 gid=1000 && \
